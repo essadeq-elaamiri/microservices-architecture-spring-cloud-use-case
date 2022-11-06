@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../e-comm-config-service/e-comm-config-service.iml" filepath="$PROJECT_DIR$/../e-comm-config-service/e-comm-config-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../e-comm-customer-service/e-comm-customer-service.iml" filepath="$PROJECT_DIR$/../e-comm-customer-service/e-comm-customer-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../e-comm-gateway-service/e-comm-gateway-service.iml" filepath="$PROJECT_DIR$/../e-comm-gateway-service/e-comm-gateway-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../e-comm-inventory-service/e-comm-inventory-service.iml" filepath="$PROJECT_DIR$/../e-comm-inventory-service/e-comm-inventory-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e-comm-micro-services.iml" filepath="$PROJECT_DIR$/e-comm-micro-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../e-comm-order-service/e-comm-order-service.iml" filepath="$PROJECT_DIR$/../e-comm-order-service/e-comm-order-service.iml" />
+    </modules>
+  </component>
+</project>
