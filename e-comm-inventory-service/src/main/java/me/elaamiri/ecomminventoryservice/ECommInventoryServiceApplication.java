@@ -4,13 +4,16 @@ import me.elaamiri.ecomminventoryservice.entities.Product;
 import me.elaamiri.ecomminventoryservice.repositories.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 import java.util.Random;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class ECommInventoryServiceApplication {
 
 	public static void main(String[] args) {
