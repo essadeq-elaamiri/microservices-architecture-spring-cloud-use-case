@@ -1,4 +1,4 @@
-package me.elaamiri.ecomminventoryservice.projections;
+package me.elaamiri.ecomminventoryservice.entities.projections;
 
 import me.elaamiri.ecomminventoryservice.entities.Product;
 import org.springframework.data.rest.core.config.Projection;
