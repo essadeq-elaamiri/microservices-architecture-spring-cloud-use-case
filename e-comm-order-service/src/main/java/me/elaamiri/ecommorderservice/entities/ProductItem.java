@@ -1,5 +1,6 @@
 package me.elaamiri.ecommorderservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class ProductItem {
     private double discount;
     private Long productID;
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Order order;
     @Transient // not to be persistent
     private Product product;
