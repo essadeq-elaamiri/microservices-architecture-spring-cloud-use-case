@@ -33,22 +33,7 @@ public class ECommOrderServiceApplication {
 		return  args -> {
 			Collection<Customer> customers = customerRestClientService.getCustomers().getContent();
 
-			List<ProductItem> productItemList = new ArrayList<>();
-			for (int i= 1; i<= (new Random()).nextInt(1, 10) ; i++ ){
-				Long productId = (new Random()).nextLong(1L, 4L);
-				ProductItem productItem = ProductItem.builder()
-						.discount(52.2)
-						.product(inventoryRestClientService.getProductById(productId))
-						.productID(productId)
-						.price(1548)
-						.build();
-				productItemList.add(productItem);
-				productItemRepository.save(productItem);
-			}
-
-			AtomicReference<Order> savedOrder= new AtomicReference<>();
 			customers.forEach(customer1 -> {
-				System.out.println(productItemList);
 				Order order = Order.builder()
 						.createdAt(new Date())
 						.customer(customer1)
@@ -56,8 +41,18 @@ public class ECommOrderServiceApplication {
 						.orderStatus(OrderStatus.CREATED)
 						.build();
 				Order order1 = orderRepository.save(order);
-				order1.setProductItemList(productItemList);
-				savedOrder.set(orderRepository.save(order1));
+				for (int i= 1; i<= (new Random()).nextInt(3, 15) ; i++ ){
+					Long productId = (new Random()).nextLong(1L, 4L);
+					ProductItem productItem = ProductItem.builder()
+							.discount(52.2)
+							.product(inventoryRestClientService.getProductById(productId))
+							.productID(productId)
+							.order(order1)
+							.price(1548)
+							.build();
+
+					productItemRepository.save(productItem);
+				}
 			});
 
 
