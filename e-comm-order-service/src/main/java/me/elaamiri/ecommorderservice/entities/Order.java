@@ -20,7 +20,7 @@ public class Order {
     private Long id;
     private Date createdAt;
     private OrderStatus orderStatus;
-    private Long CustomerID;
+    private Long customerID;
     @OneToMany(mappedBy = "order")
     private List<ProductItem> productItemList;
     @Transient

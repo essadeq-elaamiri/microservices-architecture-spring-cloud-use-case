@@ -31,35 +31,35 @@ public class ECommOrderServiceApplication {
 							InventoryRestClientService inventoryRestClientService){
 		return  args -> {
 			Collection<Customer> customers = customerRestClientService.getCustomers().getContent();
-			customers.forEach(customer ->{
+
+			List<ProductItem> productItemList = new ArrayList<>();
+			for (int i= 1; i<= (new Random()).nextInt(1, 10) ; i++ ){
 				Long productId = (new Random()).nextLong(1L, 4L);
-				int productsNumber = (new Random()).nextInt(1, 4);
+				ProductItem productItem = ProductItem.builder()
+						.discount(52.2)
+						.product(inventoryRestClientService.getProductById(productId))
+						.productID(productId)
+						.price(1548)
+						.build();
+				productItemList.add(productItem);
+				productItemRepository.save(productItem);
+			}
 
-				List<ProductItem> productItemList = new ArrayList<>();
-				for (int i= 1; i<= productsNumber ; i++ ){
-					ProductItem productItem = ProductItem.builder()
-							.discount(52.2)
-							.product(inventoryRestClientService.getProductById(productId))
-							.productID(productId)
-							.price(1548)
-							.build();
-					productItemList.add(productItem);
-					productItemRepository.save(productItem);
-				}
-
-				customers.forEach(customer1 -> {
-					Order order = Order.builder()
-							.createdAt(new Date())
-							.customer(customer1)
-							.orderStatus(OrderStatus.CREATED)
-							.productItemList(productItemList)
-							.build();
-					orderRepository.save(order);
-					productItemList.clear();
-				});
-
-
+			customers.forEach(customer1 -> {
+				System.out.println(productItemList);
+				Order order = Order.builder()
+						.createdAt(new Date())
+						.customer(customer1)
+						.customerID(customer1.getId())
+						.orderStatus(OrderStatus.CREATED)
+						.productItemList(productItemList)
+						.build();
+				orderRepository.save(order);
+				productItemList.clear();
 			});
+
+
+
 		};
 	}
 }
