@@ -15,6 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 @SpringBootApplication
 @EnableFeignClients // without it will not inject the FeignRestClientServices
@@ -45,6 +46,7 @@ public class ECommOrderServiceApplication {
 				productItemRepository.save(productItem);
 			}
 
+			AtomicReference<Order> savedOrder= new AtomicReference<>();
 			customers.forEach(customer1 -> {
 				System.out.println(productItemList);
 				Order order = Order.builder()
@@ -52,11 +54,12 @@ public class ECommOrderServiceApplication {
 						.customer(customer1)
 						.customerID(customer1.getId())
 						.orderStatus(OrderStatus.CREATED)
-						.productItemList(productItemList)
 						.build();
-				orderRepository.save(order);
-				productItemList.clear();
+				Order order1 = orderRepository.save(order);
+				order1.setProductItemList(productItemList);
+				savedOrder.set(orderRepository.save(order1));
 			});
+
 
 
 
