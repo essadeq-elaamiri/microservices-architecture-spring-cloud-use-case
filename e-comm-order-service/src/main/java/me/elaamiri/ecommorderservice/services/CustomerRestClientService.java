@@ -2,6 +2,7 @@ package me.elaamiri.ecommorderservice.services;
 
 import me.elaamiri.ecommorderservice.model.Customer;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -13,6 +14,6 @@ public interface CustomerRestClientService {
     public Customer getCustomerById(@PathVariable Long id);
 
     @GetMapping("/customers?projection=fullCustomer")
-    public List<Customer> getCustomers();
+    public PagedModel<Customer> getCustomers();
 
 }

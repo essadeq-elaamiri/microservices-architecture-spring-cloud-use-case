@@ -12,5 +12,5 @@ public interface InventoryRestClientService {
     @GetMapping("/products/{id}?projection=fullProduct")
     public Product getProductById(@PathVariable Long id);
     @GetMapping("/products?projection=fullProduct")
-    public List<Product> getProductsList();
+    public PagedModel<Product> getProductsList();
 }
