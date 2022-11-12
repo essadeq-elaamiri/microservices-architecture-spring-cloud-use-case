@@ -1,5 +1,7 @@
 package me.elaamiri.ecommbillingservice;
 
+import lombok.AllArgsConstructor;
+import me.elaamiri.ecommbillingservice.configuration.ConsulConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,16 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RefreshScope
+@AllArgsConstructor
 public class ConsulConfigRestController {
-    // Inject the configuration value in a variable.
-    // the same name as that in config service
-    @Value("${token.accessTokenTimeout}")
-    private long accessTokenTimeout;
+    private ConsulConfig consulConfig; // injected using Constructor
 
     @GetMapping("/configValues")
     // just to show what we get
-    public Map<String, Object> getConfigValue(){
-        return Map.of("accessTokenTimeout", accessTokenTimeout);
+    public ConsulConfig getConfigValue(){
+        return consulConfig;
     }
 }
