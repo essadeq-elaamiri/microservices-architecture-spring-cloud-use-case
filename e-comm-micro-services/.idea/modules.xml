@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../e-comm-billing-service/e-comm-billing-service.iml" filepath="$PROJECT_DIR$/../e-comm-billing-service/e-comm-billing-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/../e-comm-config-service/e-comm-config-service.iml" filepath="$PROJECT_DIR$/../e-comm-config-service/e-comm-config-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/../e-comm-customer-service/e-comm-customer-service.iml" filepath="$PROJECT_DIR$/../e-comm-customer-service/e-comm-customer-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/../e-comm-gateway-service/e-comm-gateway-service.iml" filepath="$PROJECT_DIR$/../e-comm-gateway-service/e-comm-gateway-service.iml" />

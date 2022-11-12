@@ -12,9 +12,11 @@
         <module name="e-comm-customer-service" />
         <module name="e-comm-order-service" />
         <module name="e-comm-inventory-service" />
+        <module name="e-comm-billing-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="e-comm-billing-service" target="17" />
       <module name="e-comm-config-service" target="17" />
       <module name="e-comm-customer-service" target="17" />
       <module name="e-comm-gateway-service" target="17" />
@@ -24,6 +26,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="e-comm-billing-service" options="-parameters" />
       <module name="e-comm-config-service" options="-parameters" />
       <module name="e-comm-customer-service" options="-parameters" />
       <module name="e-comm-gateway-service" options="-parameters" />
