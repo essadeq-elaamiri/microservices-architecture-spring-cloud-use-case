@@ -1,4 +1,11 @@
 <div class="container">
+  <nav aria-label="breadcrumb mt-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item " aria-current="page">Customers</li>
+      <li class="breadcrumb-item " aria-current="page">{{customer.id}}</li>
+      <li class="breadcrumb-item active" aria-current="page">Orders</li>
+    </ol>
+  </nav>
     <h2 class="my-5" >Orders</h2>
     <div class="card mb-5" *ngIf="customer" >
         <div class="card-header">

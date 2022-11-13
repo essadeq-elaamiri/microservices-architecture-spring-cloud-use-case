@@ -10,18 +10,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class OrderDetailsComponent implements OnInit {
 
   
-  productItemsList: any;
+  orderDtails: any;
   orderId!: number;
   constructor(private http:HttpClient, private activatedRoute: ActivatedRoute, private router: Router) { 
     this.orderId = activatedRoute.snapshot.params['orderId'];
   }
 
   ngOnInit(): void {
-    let url = `http://localhost:8989/gateway-service/order-service/orders/${this.orderId}/productItemList` 
-
+    //let url = `http://localhost:8989/gateway-service/order-service/orders/${this.orderId}/productItemList` 
+    let url = `http://localhost:8989/gateway-service/order-service/fullOrder/${this.orderId}`
     this.http.get(url).subscribe({
       next: data => {
-        this.productItemsList = data;
+        this.orderDtails = data;
       },
       error: err =>{
         console.log(err);
