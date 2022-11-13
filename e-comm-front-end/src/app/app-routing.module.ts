@@ -14,7 +14,7 @@ const routes: Routes = [
     component: CustomersComponent
   },
   {
-    path: "orders",
+    path: "orders/:customerId",
     component: OrdersComponent
   }
 ];

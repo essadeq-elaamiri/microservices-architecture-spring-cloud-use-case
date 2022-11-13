@@ -15,7 +15,7 @@
             <td>{{customer.name}}</td>
             <td>{{customer.email}}</td>
             <td>
-                <a routerLink="" class="btn btn-outline-warning">Orders</a>
+                <a (click)="getCustomerOrders(customer)" class="btn btn-outline-warning">Orders</a>
             </td>
 
           </tr>

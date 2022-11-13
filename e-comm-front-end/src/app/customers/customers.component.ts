@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class CustomersComponent implements OnInit {
 
   customersList: any;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     // getting data
@@ -21,6 +22,11 @@ export class CustomersComponent implements OnInit {
         console.log(err)
       }
     });
+  }
+
+  getCustomerOrders(customer: any):void {
+    console.log(customer);
+    this.router.navigateByUrl(`/orders/${customer.id}`);
   }
 
 }
