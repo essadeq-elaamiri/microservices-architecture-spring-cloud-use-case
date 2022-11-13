@@ -1,1 +1,25 @@
-<p>products works!</p>
+<div class="container">
+    <h2>Products</h2>
+    <table class="table" *ngIf="products">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quatity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of products.embedded.products">
+            <th scope="row">{{prod.id}}</th>
+            <td>{{prod.name}}</td>
+            <td>{{prod.quantity}}</td>
+            <td>{{prod.price}}</td>
+          </tr>
+          
+        </tbody>
+    </table>
+    <div *ngIf="!products" class="alert alert-danger" role="alert">
+        No products here yet ! <a> want to add one ? </a>
+    </div>
+</div>
