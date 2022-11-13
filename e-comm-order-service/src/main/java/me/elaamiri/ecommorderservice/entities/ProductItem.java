@@ -26,4 +26,8 @@ public class ProductItem {
     private Order order;
     @Transient // not to be persistent
     private Product product;
+
+    public double getAmount(){
+        return (this.price*this.quantity)*(1- this.discount/100);
+    }
 }

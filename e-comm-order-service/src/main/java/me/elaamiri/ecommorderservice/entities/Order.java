@@ -26,4 +26,9 @@ public class Order {
     @Transient
     private Customer customer;
 
+    public double getTotal(){
+        //return productItemList.stream().map(productItem -> productItem.getAmount()).reduce((amount, somme) -> somme + amount ).get();
+        return productItemList.stream().map(ProductItem::getAmount).reduce(Double::sum).get();
+    }
+
 }

@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="row">
-        <h2 class="my-5" >Product Items</h2>
+        <h2 class="my-2" >Product Items</h2>
 
         <table class="table table-dark table-hover" *ngIf="orderDtails">
             <thead>
@@ -67,6 +67,8 @@
                 <th scope="col">Quantity</th>
                 <th scope="col">Discount</th>
                 <th scope="col">Product</th>
+                <th scope="col">Amount</th>
+
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -144,11 +146,21 @@
                 </td>
 
                 <td>
+                    {{productItem.amount}} $
+                </td>
+
+                <td>
                     edit/delete
                 </td>
     
               </tr>
-              
+              <tr class="table-warning">
+                <th scope="row" colspan="3" >Total To Pay in $</th>
+                <td colspan="4" class="table-active text-center">
+                    <b>{{orderDtails.total}} </b>
+
+                    </td>
+              </tr>
             </tbody>
         </table>
         <div *ngIf="!orderDtails" class="alert alert-danger" role="alert">
