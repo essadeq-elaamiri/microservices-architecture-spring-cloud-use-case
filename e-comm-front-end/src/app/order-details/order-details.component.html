@@ -1,0 +1,40 @@
+<div class="container">
+    <h2 class="my-5" >Order Product Itmes</h2>
+    
+    <table class="table table-dark table-hover" *ngIf="productItemsList">
+        <thead>
+          <tr>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Discount</th>
+            <th scope="col">ProductID</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let productItem of productItemsList._embedded.productItems">
+            <th scope="row">{{productItem.price}} $</th>
+            <td>{{productItem.quantity}}</td>
+            <td>
+               {{productItem.discount}} % 
+                
+                <span class="badge rounded-pill bg-warning text-dark">
+                    {{productItem.price - (productItem.price*productItem.discount/100)}} $
+                </span>
+
+            </td>
+            <td>
+                {{productItem.productID}}
+             </td>
+            <td>
+                <a  class="btn btn-sm btn-outline-light">Show Product</a>
+            </td>
+
+          </tr>
+          
+        </tbody>
+    </table>
+    <div *ngIf="!productItemsList" class="alert alert-danger" role="alert">
+        No order details here yet !
+    </div>
+</div>

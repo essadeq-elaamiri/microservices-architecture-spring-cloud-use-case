@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -12,7 +12,7 @@ export class OrdersComponent implements OnInit {
   ordersList: any;
   customerId!: number;
   customer: any;
-  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute) { 
+  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute, private router: Router) { 
     this.customerId = activatedRoute.snapshot.params['customerId'];
   }
 
@@ -37,6 +37,11 @@ export class OrdersComponent implements OnInit {
         console.log(err);
       }
     });
+  }
+
+  getorderDetails(order: any):void{
+    this.router.navigateByUrl(`/orderDetails/${order.id}`);
+
   }
 
 }

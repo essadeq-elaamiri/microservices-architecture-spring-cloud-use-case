@@ -36,14 +36,14 @@
             <td>
                 <!--{{order.orderStatus}}-->
                 <!--CREATED, PENDING, DELIVERED, CANCELED -->
-                <span *ngIf=" order.orderStatus == 'CREATED'" class="badge rounded-pill bg-primary">Primary</span>
-                <span *ngIf=" order.orderStatus == 'PENDING'" class="badge rounded-pill bg-warning text-dark">Secondary</span>
-                <span *ngIf=" order.orderStatus == 'DELIVERED'" class="badge rounded-pill bg-success">Success</span>
-                <span *ngIf=" order.orderStatus == 'CANCELED'" class="badge rounded-pill bg-danger">Danger</span>
+                <span *ngIf=" order.orderStatus == 'CREATED'" class="badge rounded-pill bg-primary">{{order.orderStatus}}</span>
+                <span *ngIf=" order.orderStatus == 'PENDING'" class="badge rounded-pill bg-warning text-dark">{{order.orderStatus}}</span>
+                <span *ngIf=" order.orderStatus == 'DELIVERED'" class="badge rounded-pill bg-success">{{order.orderStatus}}</span>
+                <span *ngIf=" order.orderStatus == 'CANCELED'" class="badge rounded-pill bg-danger">{{order.orderStatus}}</span>
 
             </td>
             <td>
-                edit/delete
+                <a (click)="getorderDetails(order)" class="btn btn-sm btn-outline-light">Order Details</a>
             </td>
 
           </tr>
