@@ -15,10 +15,18 @@ public class WebConfig implements WebFluxConfigurer {
     private Environment environment;
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry){
-        String urls = environment.getProperty("cors.urls"); // set of string separated by , commas
-        CorsRegistration corsRegistration = corsRegistry.addMapping("/**");
+
+        corsRegistry.addMapping("/**")
+                .allowedOrigins("http://localhost:4200")
+                .allowedMethods("GET", "POST" ,"PUT", "DELETE")
+                .allowedHeaders("*")
+                .allowCredentials(true).maxAge(3600);
 
 
+        //String urls = environment.getProperty("cors.urls"); // set of string separated by , commas
+        //CorsRegistration corsRegistration = corsRegistry.addMapping("/**");
+
+        /*
         String[] corsUrls = urls.split(",");
         for (String corsUrl : corsUrls){
             System.out.println(corsUrl);
@@ -26,6 +34,7 @@ public class WebConfig implements WebFluxConfigurer {
                     .allowedHeaders("*")
                     .allowedMethods("GET","POST", "PUT", "DELETE" );
         }
+        */
     }
 
 }

@@ -1,13 +1,11 @@
 spring:
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowed-origins: "https://docs.spring.io"
-            allowed-headers: "*"
-            allowed-methods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods: "*"
+            allowedHeaders: "*"
