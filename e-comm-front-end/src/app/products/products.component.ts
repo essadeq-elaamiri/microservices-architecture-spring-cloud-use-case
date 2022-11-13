@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  products: any;
+  productsList: any;
   constructor(private http:HttpClient) { } // injection
 
   ngOnInit(): void {
     this.http.get("http://localhost:8989/gateway-service/inventory-service/products?projection=fullProduct").subscribe(
       {
         next: (data)=>{
-          this.products = data;
+          this.productsList = data;
           console.log(data);
         },
         error:(err)=>{
